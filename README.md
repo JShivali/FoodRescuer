@@ -70,3 +70,15 @@ individuals and food_banks.
 
 ### Workflow
 ![alt text](https://github.com/JShivali/FoodRescuer/blob/main/system_flow.PNG?raw=true)
+
+### Cloud APIs used:
+* Cloud Functions: For getting image from bucket and calling vision API and storing 
+* Cloud Storage: to store image uploaded by user
+* Firebase Firestore: Database to store documents 
+* Cloud Run: To run containerized flask app and serve endpoints for backend
+* Cloud Pubsub: to decouple the architecture of functions.
+* Cloud Vision API: To classify images
+* Cloud Build: To create image from flask app and upload to Google cloud container registry
+* Cloud container registry 
+* Google Map API, Geocoding API, Places: To get location of the user and display on map. Geocoding API used to reverse the geocode location of the user getting the food and find nearest food items.
+
