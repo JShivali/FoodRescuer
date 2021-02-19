@@ -69,4 +69,4 @@ more details.
 individuals and food_banks.
 
 ### Workflow
-![alt text](https://github.com/JShivali/FoodRescuer/blob/main/system_flow.jpg?raw=true)
+![alt text](https://github.com/JShivali/FoodRescuer/blob/main/system_flow.PNG?raw=true)
