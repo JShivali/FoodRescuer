@@ -26,11 +26,11 @@ paper, Tide etc.
 * User interface: I have used Flask app along with general HTML and CSS for the front
 end of the app. The flask app has various end points in the app.py file. The user
 interface is contained in the src/templates folder. This folder has following files:
-* Donatefood.html: This file has the form to let users upload images, add location
+  * Donatefood.html: This file has the form to let users upload images, add location
 details and pick up times for the item.
-* Getfood.html : This file has a form to take information like business type and
+  * Getfood.html : This file has a form to take information like business type and
 location and displays the food items nearest to the user specified location.
-* While uploading the image, I upload the image to a folder in the container and
+  * While uploading the image, I upload the image to a folder in the container and
 then push that image to cloud storage from the flask code. I set various attributes
 like pick up time, location etc as metadata to the file while uploading.
 * Flask app endpoints: The flask app has various endpoints that connect UI to the
@@ -50,13 +50,13 @@ entered by the user and populates on the page.
 populated on the get food page for pick up.
 * Cloud functions: I have used two types of cloud functions. One is storage triggered and
 the other one is pubsub triggered.
-* Storage triggered: The storage triggered cloud function gets the images
+  * Storage triggered: The storage triggered cloud function gets the images
 uploaded by the user and calls the Cloud Vision API to classify the image. The
 function gives the image to cloud vision API and gets the labels and scores.
 These scores and labels are used to classify images in a category. A message is
 created and this category along with other metadata like pick up time and
 location etc. This message is pushed to pubsub.
-* PubSub triggered: The pubsub triggered cloud function is invoked when the
+  * PubSub triggered: The pubsub triggered cloud function is invoked when the
 above message is pushed to cloud pubsub. This function listens to the
 store-food-item topic. The message is received in the cloud function, the category
 is examined and the item is put in appropriate collection. (Refer store-food-item
@@ -65,5 +65,5 @@ are added to food_banks collection, the items with ‘produce’ category are ad
 to individuals collections. The items with the ‘cooked_food’ category are added to
 the soup_kitchen collection. Please refer the comment in cloud function code for
 more details.
-* Firestore: The images are categorized into 4 collections namely default, soup_kitchen,
+  * Firestore: The images are categorized into 4 collections namely default, soup_kitchen,
 individuals and food_banks.
