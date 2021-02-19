@@ -35,28 +35,28 @@ then push that image to cloud storage from the flask code. I set various attribu
 like pick up time, location etc as metadata to the file while uploading.
 * Flask app endpoints: The flask app has various endpoints that connect UI to the
 Firestore and google cloud storage. The end points and their function are as follows:
-  * / and /home: This loads the home page
-○ /getfood: This loads the ‘getfood’ html page
-○ /donatefood: This loads the ‘donatefood’ html page
-○ /upload-image: This is called when the form on ‘donatefood’ html page is
+   * / and /home: This loads the home page
+   * /getfood: This loads the ‘getfood’ html page
+   * /donatefood: This loads the ‘donatefood’ html page
+   * /upload-image: This is called when the form on ‘donatefood’ html page is
 submitted. This method receives the file to be uploaded and other file data like
 location, pickup time etc. This file is then uploaded to a GCS bucket called
 ‘upload-food-bucket’.
-○ /get-food-listings: This is called when the user fills business type and location
+  * /get-food-listings: This is called when the user fills business type and location
 information on the get food page and submits the form. This method gets data
 from firestore that has an available flag set to true and is around the location
 entered by the user and populates on the page.
-○ /book-food: This endpoint is invoked when a user selects the food listings
+  * /book-food: This endpoint is invoked when a user selects the food listings
 populated on the get food page for pick up.
-● Cloud functions: I have used two types of cloud functions. One is storage triggered and
+* Cloud functions: I have used two types of cloud functions. One is storage triggered and
 the other one is pubsub triggered.
-○ Storage triggered: The storage triggered cloud function gets the images
+* Storage triggered: The storage triggered cloud function gets the images
 uploaded by the user and calls the Cloud Vision API to classify the image. The
 function gives the image to cloud vision API and gets the labels and scores.
 These scores and labels are used to classify images in a category. A message is
 created and this category along with other metadata like pick up time and
 location etc. This message is pushed to pubsub.
-○ PubSub triggered: The pubsub triggered cloud function is invoked when the
+* PubSub triggered: The pubsub triggered cloud function is invoked when the
 above message is pushed to cloud pubsub. This function listens to the
 store-food-item topic. The message is received in the cloud function, the category
 is examined and the item is put in appropriate collection. (Refer store-food-item
@@ -65,5 +65,5 @@ are added to food_banks collection, the items with ‘produce’ category are ad
 to individuals collections. The items with the ‘cooked_food’ category are added to
 the soup_kitchen collection. Please refer the comment in cloud function code for
 more details.
-● Firestore: The images are categorized into 4 collections namely default, soup_kitchen,
+* Firestore: The images are categorized into 4 collections namely default, soup_kitchen,
 individuals and food_banks.
