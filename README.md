@@ -67,3 +67,6 @@ the soup_kitchen collection. Please refer the comment in cloud function code for
 more details.
   * Firestore: The images are categorized into 4 collections namely default, soup_kitchen,
 individuals and food_banks.
+
+### Workflow
+![alt text](https://github.com/JShivali/FoodRescuer/blob/main/system_flow.jpg?raw=true)
