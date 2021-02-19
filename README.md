@@ -1,4 +1,4 @@
-This a final project for Cloud Computing () class. The project was created using the GCP free credits avaialble. 
+This a final project for Cloud Computing (CSCI-B 649) class.
 
 ### Motivation: 
 With COVID hitting the world in 2020, many families and the homeless
