@@ -82,3 +82,10 @@ individuals and food_banks.
 * Cloud container registry 
 * Google Map API, Geocoding API, Places: To get location of the user and display on map. Geocoding API used to reverse the geocode location of the user getting the food and find nearest food items.
 
+
+### Weaknesses and Improvements:
+* The UI has no validations in place and the project will break if invalid input is entered. Since the aim of this assignment wasn’t website development, I have not put in much effort for UI and validation.
+* The system relies on Cloud VisionAPI to classify images uploaded, the classification labels might determine the correctness of the application logic. I have only tested the application for the sample images included in the submission folder. To build a robust system, we can create a custom model to train and classify food images specifically for the purpose of this project. Since I have no knowledge of machine learning, I have used the Cloud Vision API for it. The correctness of this application logic is restricted to the images provided. 
+* I came up with some of the business rules(mentioned in the use case section) for the purpose of this project and to create its backend. These may not exactly be the rules according to which food banks and soup kitchens operate. 
+The endpoints exposed via cloud run are unauthenticated. Ideally authentication of the user can be performed via login feature for additional security. Another option is to use the API Gateway offerings by Google to secure the endpoints.
+* I have used the public url of the GCS object to display images in the frontend. This can be a security issue for some apps with critical data.
